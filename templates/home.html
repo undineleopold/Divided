@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+<h1>Willkommen! Hier kannst du Dividieren üben. </h1>
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<form action="{{ url_for('index') }}" method="post">
+    <label for="action">Ich möchte ...</label><br>
+    <select name="action" id="action"><br><br>
+        <option value="question">selbst rechnen</option>
+        <!--<option value="correction">etwas berichtigen</option>-->
+    </select><br><br>
+    <input type="submit" value="Los geht's!">
+</form>
+
+{% endblock %}
