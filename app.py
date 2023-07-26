@@ -84,4 +84,4 @@ def calculate(action):
         question=generate_division_question()
     return render_template('calculate.html',question=question, message=message, enable_btn=enable_btn, score=score, clear=clear)
 
-app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)), debug=True) #tell development server to listen on all interfaces
+app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000))) #tell development server to listen on all interfaces
