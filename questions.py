@@ -7,7 +7,14 @@ error=['Leider nicht richtig!', 'Da hat sich ein Fehler eingeschlichen.', 'Liebe
 
 class Question:
     def __init__(self,skill=1):
-        quotient=randint(10,99)
+        if skill==1:
+            quotient=randint(11,19)
+        elif skill==2:
+            quotient=randint(11,29)
+        elif skill==3:
+            quotient=randint(11,49)
+        else:
+            quotient=randint(11,99)
         self.divisor=randint(2,9)
         remainder=randint(0,self.divisor-1)
         self.dividend=quotient*self.divisor+remainder

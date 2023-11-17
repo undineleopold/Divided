@@ -30,13 +30,18 @@ def calculate(action):
     message=''
     score=0
     clear=True
+    skill=1
     if request.method=='POST': #form has been submitted
         new=request.form.get('new')
         ans=request.form.get('ans')
         hlp=request.form.get('help')
         score=int(request.form.get('score'))
+        skill_new=min(4,1+score//10)
+        if skill_new>skill:
+            #flash("Ab jetzt wird es schwieriger. Du schaffst das!")
+            skill=skill_new
         if new: #new is not None
-            question=generate_division_question()
+            question=generate_division_question(skill)
         else:
             #use cookie rather than hidden input?
             question=eval(request.form.get('question'))#need to use eval bc jinja2 returns
