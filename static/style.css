@@ -1,6 +1,6 @@
 html {
-  font-family: sans-serif;
-  background: SteelBlue;
+  font-family: Arial;
+  background: linear-gradient(45deg,LightYellow,Linen,LightCyan);
   padding: 1rem;
 }
 
@@ -8,19 +8,24 @@ body {
   max-width: 780px;
   margin: auto;
   border-radius: 15px;
-  border: 2px solid darkslategray;
+  border: 2px double darkslategray;
   background: mintcream;
   padding: 1rem;
 }
 
 h1, h2, h3 {
-  font-family: Verdana;
+  font-family: Calibri;
   color: darkslategray;
   margin: 1rem 1rem;
 }
 
 a {
   color: darkslategray;
+  text-decoration: none;
+}
+
+a:hover {
+    color: black;
 }
 
 hr {
@@ -30,7 +35,8 @@ hr {
 
 nav {
   background: lightblue;
-  border-radius: 15px;
+  opacity: 0.5;
+  border-radius: 15px 15px 0 0;
   display: flex;
   align-items: center;
   padding: 0 1rem;
@@ -38,7 +44,20 @@ nav {
 }
 
 .nav-item {
-    margin: 0 auto;
+    margin: 1rem auto;
+}
+
+.problem{
+    margin: auto;
+    font-family: Arial;
+    font-weight:bold;
+}
+
+input[type=text] {
+    border:none;
+    font-family: Arial;
+    font-weight:bold;
+    margin: 3px;
 }
 
 input[type=submit] {
@@ -47,5 +66,7 @@ input[type=submit] {
   background: lavender;
   border-radius: 5px;
   font-weight:bold;
+  font-family: Calibri;
+  color: darkslategray;
   margin: 1em 1em;
 }

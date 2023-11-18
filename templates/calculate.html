@@ -3,19 +3,19 @@
 
 {% block header %}
     <h1>Rechne die folgende Divisionsaufgabe. Zeige den Rechenweg.</h1>
-    <h1>Punktzahl: {{score}}</h2>
+    <h1>Punktzahl: {{score}}</h1>
 {% endblock %}
 
 
 {% block content %}
-    <h4>Achtung, es könnte ein Rest bleiben!</h2>
+    <h4>Achtung, es könnte ein Rest bleiben!</h4>
 
     <form action="{{ url_for('calculate', action='question') }}" method="post" autocomplete="off">
-
+        <div class="problem">
         {%for digit in question["dividend"]|string%}
             <input type="text" maxlength="1" size="1" value={{digit}} readonly>
         {%endfor%}
-        :{{question["divisor"]}}=
+        : {{question["divisor"]}} =
         {%for digit in range(question["dividend"]|string|length)%}
             <input type="text" maxlength="1" size="1" pattern="\d" placeholder="0" name="whole_{{digit}}" value={{'' if clear else request.form["whole_"~digit]}}>
             <!--alternatively, use digit|string-->
@@ -26,7 +26,7 @@
 
         {%for digit in range(question["dividend"]|string|length)%}
             <input type="text" maxlength="1" size="1" pattern="\d" placeholder="0" name="coarse_{{digit}}" value={{'' if clear else request.form["coarse_"~digit]}}>
-        {%endfor%}:{{question["divisor"]}}=
+        {%endfor%}: {{question["divisor"]}} =
         {%for digit in range(question["dividend"]|string|length)%}
             <input type="text" maxlength="1" size="1" pattern="\d" placeholder="0" name="partial_coarse_{{digit}}" value={{'' if clear else request.form["partial_coarse_"~digit]}}>
         {%endfor%}
@@ -36,12 +36,12 @@
         {%for digit in range(question["dividend"]|string|length)%}
             <input type="text" maxlength="1" size="1" pattern="\d" placeholder="0" name="fine_{{digit}}" value={{'' if clear else request.form["fine_"~digit]}}>
         {%endfor%}
-        :{{question["divisor"]}}=
+        : {{question["divisor"]}} =
         {%for digit in range(question["dividend"]|string|length)%}
             <input type="text" maxlength="1" size="1" pattern="\d" placeholder="0" name="partial_fine_{{digit}}" value={{'' if clear else request.form["partial_fine_"~digit]}}>
         {%endfor%}
         Rest <input type="text" size="1" maxlength="1" pattern="\d" placeholder="0" name="fine_rem" value={{'' if clear else request.form["fine_rem"]}}>
-
+        </div>
 
         <input type="hidden" name="question" value="{{question}}">
         <input type="hidden" name="score" value={{score}}>
